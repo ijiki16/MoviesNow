@@ -1,3 +1,9 @@
-#header {background-color: black;}
-  
-  
+#header {
+    background-color: black;
+}
+
+.card {
+    margin: 1rem;
+    border: 1px solid gray;
+    width: 400;
+}
