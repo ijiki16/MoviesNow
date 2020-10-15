@@ -1,9 +1,44 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: montserrat;
+}
+
+ul {
+    width: 500px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+    display: inline;
+}
+
+li a {
+    display: block;
+    padding: 8px;
+    background-color: orange;
+}
+
 #header {
     background-color: black;
 }
-
+.root{
+    display: inline;
+}
 .card {
     margin: 1rem;
     border: 1px solid gray;
+    display: inline;
+    height: 200px;
     width: 400;
 }
