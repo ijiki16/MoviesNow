@@ -1,44 +1,52 @@
 * {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: montserrat;
+  font-family: montserrat;
 }
 
-ul {
-    width: 500px;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+.logo {
+  background: black;
+  width: 20%;
+  float: left;
+  height: 80px;
 }
 
-li {
-    float: left;
-    display: inline;
+.menu {
+  background: black;
+  width: 80%;
+  float: left;
+  height: 80px;
 }
 
-li a {
-    display: block;
-    padding: 8px;
-    background-color: orange;
+ul li {
+  height: 60px;
+  float: left;
+  list-style: none;
+  margin-left: 10px;
 }
 
-#header {
-    background-color: black;
+ul li a {
+  display: block;
+  padding: 5px;
+  color: #D4D4D4;
+  font-size: 40px;
+  
 }
-.root{
-    display: inline;
+
+ul li a:hover {
+  color: #F78B1F;
+
 }
+
 .card {
-    margin: 1rem;
-    border: 1px solid gray;
-    display: inline;
-    height: 200px;
-    width: 400;
+  margin: 1rem;
+  border: 1px solid gray;
+  /* height: 200px; */
+  width: 201px;
 }
