@@ -24,7 +24,7 @@ request.onload = function () {
       img.src = movie.posters.data[240]
       //movie.description = movie.description.substring(0, 300)
 
-      card.appendChild(h1)
+      // card.appendChild(h1)
       card.appendChild(img)
 
       app.appendChild(card)
