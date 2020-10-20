@@ -1,4 +1,4 @@
-const app = document.getElementById('root')
+const app = document.getElementById('root1')
 
 var request = new XMLHttpRequest();
 
@@ -9,7 +9,7 @@ request.onload = function () {
   
   if (request.status >= 200 && request.status < 400) {
     data.data.forEach((movie) => {
-      console.log(movie.poster)
+      // console.log(movie.poster)
 
       const card = document.createElement('div')
       card.setAttribute('class', 'card')
