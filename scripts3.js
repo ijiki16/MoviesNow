@@ -9,7 +9,7 @@ request3.onload = function () {
   
   if (request3.status >= 200 && request3.status < 400) {
     data.data.forEach((movie) => {
-        console.log(movie)
+      // console.log(movie)
       
 
       const card = document.createElement('div')

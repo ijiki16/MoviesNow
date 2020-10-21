@@ -5,33 +5,51 @@
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
+  align-items: center;
 }
 
 body {
   font-family: montserrat;
+  text-align: center;
+  background-color: #2A9D8F;
+}
+
+h1{
+  height: 60px;
+  color: #F78B1F;
+  font-size: 45px;
+  margin: 0 auto;
+}
+
+header{
+  background-color:  #f0f420;
+  display: block;
+  height: 76px;
 }
 
 .logo {
-  background: black;
+  background: #264653;  
   width: 20%;
   float: left;
-  /* height: 80px; */
+}
+.logoelem{
+  margin: auto;
+  height: 76px;
+  float: left;
 }
 
 .menu {
-  background: #000000;
+  background: #264653;
   width: 80%;
   float: left;
-  /* height: 80px; */
+  align-items: center;
+  justify-content: center;
 }
 
 ul li {
   height: 60px;
   float: left;
   list-style: none;
-  /* margin-left: 10px; */
-  /* margin-top: 8px;
-  margin-bottom: 8px; */
   margin: 8px  10px  8px  0px ;
 }
 
@@ -50,7 +68,7 @@ ul li a:hover {
 
 .root{
   display: inline-flex;
-  background-color: #7c5446;
+  background-color: #E9C46A;
   overflow-x: scroll;
   overflow-y: hidden;
   flex-wrap: nowrap;
@@ -59,16 +77,12 @@ ul li a:hover {
 .card {
   margin: 1rem;
   border: 1px solid gray;
-  /* height: 200px; */
-  /* background: white; */
   width: 201px;
   box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
   border-radius: 12px;
   overflow: hidden;
   transition: all .2s linear;
-  /* float: left; */
   display: inline-block;
-  /* flex: 0 0 auto; */
 }
 
 .card img {
