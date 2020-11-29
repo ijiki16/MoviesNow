@@ -8,6 +8,40 @@
 
 <body>
     <header>
+
+        <a class="logo" href="/" style=" float: left;">
+            <!-- <div class="logoIcon">
+                <img src="images/apple-touch-icon.png" width="70px">
+            </div> -->
+
+            <div class="logoWords">
+                <img src="images/logo.svg" alt="logo">
+            </div>
+
+
+
+
+        </a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="#">Contact</a>
+        <p class="menu cta">Menu</p>
+    </header>
+    <div class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay__content">
+            <a href="#">Services</a>
+            <a href="#">Projects</a>
+            <a href="#">About</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="mobile.js"></script>
+    <!-- <header>
         <div class="logo">
             <div class="logoelem">
                 <img src="images/apple-touch-icon.png" width="70px">
@@ -26,17 +60,22 @@
                 <li><a href="#">My library</a></li>
             </ul>
         </div>
-    </header>
-    <h1>Top Today</h1>
-    <div  class="root" id="root1"></div>
-    <script src="scripts1.js"></script>
-    <h1>Latest Upload</h1>
-    <div  class="root" id="root2"></div>
-    <script src="scripts2.js"></script>
-    <h1>Top This Month</h1>
-    <div  class="root" id="root3"></div>
-    <script src="scripts3.js"></script>
-    
+    </header> -->
+    <div class="allData" >
+        <h1>Top Today</h1>
+        <div class="root" id="root1" ></div>
+        <script src="scripts1.js"></script>
+
+        <h1>Latest Upload</h1>
+        <div class="root" id="root2"></div>
+        <script src="scripts2.js"></script>
+
+        <h1>Top This Month</h1>
+        <div class="root" id="root3"></div>
+        <script src="scripts3.js"></script>
+    </div>
+
+
 </body>
 
 </html>
