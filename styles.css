@@ -83,10 +83,11 @@ ul li a:hover {
   border: 8px solid gray;
   border-radius: 12px;
   margin: 5px 15px 25px 35px;
+  transition: all .2s linear;
   /* margin: 1rem;
   width: 201px;
   overflow: hidden;
-  transition: all .2s linear;
+  
   display: inline-block; */
   /* new */
   /* width: 200px;

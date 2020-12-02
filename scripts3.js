@@ -2,27 +2,20 @@ const app3 = document.getElementById('root3')
 
 var request3 = new XMLHttpRequest();
 
-request3.open('GET', 'https://api.adjaranet.com/api/v1/movies', true);
+var url = 'https://api.adjaranet.com/api/v1/movies/top'
+// 
+var params = '?type=movie&period=month&page=1&per_page=20'
+var filters = '&filters%5Bwith_actors%5D=3&filters%5Bwith_directors%5D=1'
+var other = '&source=adjaranet'
+// 
+request3.open('GET', url+params+filters+other, true);
 
-// this.response.setHeader("Access-Control-Allow-Origin", "*");
-// this.response.setHeader("Access-Control-Allow-Credentials", "true");
-// this.response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-// this.response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
-
-request3.setHeader("page", "1");
-// request3.setRequestHeader("per_page", "20");
-// ?filters%5Blanguage%5D=GEO&filters%5Btype%5D=series&filters%5Bwith_actors%5D=3&filters%5Bwith_directors%5D=1&filters%5Bwith_files%5D=yes&sort=-upload_date&source=adjaranet
-// request3.setRequestHeader("filters%5Blanguage%5D", "GEO");
-// request3.setRequestHeader("filters%5Btype%5D", "series");
-// request3.setRequestHeader("filters%5Bwith_actors%5D", "3");
-// request3.setRequestHeader("filters%5Bwith_directors%5D", "1");
-// request3.setRequestHeader("filters%5Bwith_files%5D", "yes");
-// request3.setRequestHeader("sort", "-upload_date");
-// request3.setRequestHeader("source", "adjaranet");
 request3.onload = function () {
-  var data = JSON.parse(this.response);
   
   if (request3.status >= 200 && request3.status < 400) {
+    
+    var data = JSON.parse(this.response);
+
     data.data.forEach((movie) => {
       // console.log(movie)
       
