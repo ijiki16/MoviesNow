@@ -17,7 +17,9 @@ request.onload = function () {
     var data = JSON.parse(this.response);
 
     data.data.forEach((movie) => {
-      // console.log(movie.poster)
+      console.log(movie)
+      const link  = document.createElement('a')
+      link.setAttribute('href', './movie.html/'+movie.id)
 
       const card = document.createElement('div')
       card.setAttribute('class', 'card')
@@ -34,8 +36,8 @@ request.onload = function () {
 
       // card.appendChild(h1)
       card.appendChild(img)
-
-      app.appendChild(card)
+      link.appendChild(card)
+      app.appendChild(link)
 
     })
 
