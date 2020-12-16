@@ -103,6 +103,10 @@ ul li a:hover {
   height: 300px;
   object-fit: cover;
 }
+
+a:link {
+  text-decoration: none;
+}
 /* hamburgen menu */
 * {
   box-sizing: border-box;
