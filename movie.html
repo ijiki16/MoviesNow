@@ -13,7 +13,7 @@
     <script src="header.js"></script>
     <script type="text/javascript" src="mobile.js"></script>
 
-    <video width="80%" height="720" controls>
+    <video id="video" width="80%" height="720" controls>
         <source id="videoSrc" src="" type="video/mp4">
         <!-- <source src="movie.ogg" type="video/ogg"> -->
     </video>
@@ -28,14 +28,17 @@
         request.onload = function () {
 
             if (request.status >= 200 && request.status < 400) {
+                var video = document.getElementById('video');
+                video.pause();
 
-                var data = JSON.parse(this.response); 
+                var data = JSON.parse(this.response);
                 var firsVideoData = data.data[0].files[0]
                 // console.log(firsVideoData["lang"])
                 // console.log(firsVideoData.files[0].src)
                 var videoSrcLink = firsVideoData.files[0].src
                 document.getElementById('videoSrc').setAttribute("src", videoSrcLink);
-
+                
+                video.load();
             } else {
                 console.log('error')
             }
