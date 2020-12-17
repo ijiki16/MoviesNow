@@ -13,18 +13,34 @@
     <script src="header.js"></script>
     <script type="text/javascript" src="mobile.js"></script>
 
-   
-    <!-- video -->
-    <video width="320" height="240" controls>
+    <video width="80%" height="720" controls>
         <source id="videoSrc" src="" type="video/mp4">
         <!-- <source src="movie.ogg" type="video/ogg"> -->
-        Your browser does not support the video tag.
     </video>
 
     <script>
-        var carName1 = "Volvo XC60";
-        var videoLink = "https://s4107-04.imovies.cc/video/imovie_hash_code/3/2017032106295982_high_rus.mp4?md5=0XbkTGQ8hvdzmMLvOdW2HA&expires=1608151109&data=YTozOntzOjc6InVzZXJfaXAiO3M6MTM6Ijk1LjEzNy4yMTQuMTkiO3M6MTA6InVzZXJfYWdlbnQiO3M6MjE6IlBvc3RtYW5SdW50aW1lLzcuMjYuOCI7czo3OiJyZWZlcmVyIjtzOjA6IiI7fQ=="
-        document.getElementById('videoSrc').setAttribute("src", videoLink);
+        var movieId = "450284640";
+        var linkS = "https://api.adjaranet.com/api/v1/movies/"
+        var linkE = "/season-files/0"
+        var request = new XMLHttpRequest();
+
+        request.open('GET', linkS + movieId + linkE, true);
+        request.onload = function () {
+
+            if (request.status >= 200 && request.status < 400) {
+
+                var data = JSON.parse(this.response); 
+                var firsVideoData = data.data[0].files[0]
+                // console.log(firsVideoData["lang"])
+                // console.log(firsVideoData.files[0].src)
+                var videoSrcLink = firsVideoData.files[0].src
+                document.getElementById('videoSrc').setAttribute("src", videoSrcLink);
+
+            } else {
+                console.log('error')
+            }
+        }
+        request.send()
     </script>
 </body>
 
