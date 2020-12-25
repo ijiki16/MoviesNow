@@ -22,9 +22,10 @@
         var movieId = "450284640";
         var linkS = "https://api.adjaranet.com/api/v1/movies/"
         var linkE = "/season-files/0"
+        var param = "?source=adjaranet"
         var request = new XMLHttpRequest();
 
-        request.open('GET', linkS + movieId + linkE, true);
+        request.open('GET', linkS + movieId + linkE + param, true);
         request.onload = function () {
 
             if (request.status >= 200 && request.status < 400) {

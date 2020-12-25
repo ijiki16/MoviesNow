@@ -8,14 +8,23 @@
 </head>
 
 <body>
+    <!-- routing -->
+    <script src="//unpkg.com/navigo@6"></script>
+    <script>
+        var root = null;
+        var useHash = true; // Defaults to: false
+        var hash = '#!'; // Defaults to: '#'
+        var router = new Navigo(root, useHash, hash);
+    </script>
+    <!--  -->
     <div id="menu">
     </div>
     <script src="header.js"></script>
     <script type="text/javascript" src="mobile.js"></script>
-    
-    <div class="allData" >
+
+    <div class="allData">
         <h1>Top Today</h1>
-        <div class="root" id="root1" ></div>
+        <div class="root" id="root1"></div>
         <script src="scripts1.js"></script>
 
         <h1>Latest Upload</h1>
