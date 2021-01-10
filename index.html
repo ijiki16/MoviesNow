@@ -9,12 +9,55 @@
 
 <body>
     <!-- routing -->
-    <script src="//unpkg.com/navigo@6"></script>
+    <script src="//unpkg.com/navigo"></script>
     <script>
-        var root = null;
-        var useHash = true; // Defaults to: false
-        var hash = '#!'; // Defaults to: '#'
-        var router = new Navigo(root, useHash, hash);
+        const nav = `
+          <ul>
+            <li><a href="/" data-navigo>Home</a></li>
+            <li><a href="/about" data-navigo>About navigo</a></li>
+            <li><a href="/links" data-navigo>Links</a></li>
+          </ul>
+        `;
+
+        function renderHomePage() {
+            document.querySelector("#content").innerHTML = `
+            <h1>Navigo basic example</h1>
+            <hr />
+            ${nav}
+          `;
+        }
+
+        function renderAboutPage() {
+            document.querySelector("#content").innerHTML = `
+            <h1>Navigo basic example | About</h1>
+            <hr />
+            ${nav}
+            <hr />
+            <p>Navigo is vanilla JavaScript router. It has no dependencies.</p>
+          `;
+        }
+
+        function renderLinksPage() {
+            document.querySelector("#content").innerHTML = `
+            <h1>Navigo basic example | Other links</h1>
+            <hr />
+            ${nav}
+            <hr />
+            <p>
+              <a href="https://github.com/krasimir/navigo" target="_blank" >Documentation</a><br />
+              <a href="https://www.npmjs.com/package/navigo" target="_blank" >NPM package </a>
+            </p>
+          `;
+        }
+        window.addEventListener("load", () => {
+            const router = new Navigo("/");
+
+            router
+                .on("/about", renderAboutPage)
+                .on("/links", renderLinksPage)
+                .on("*", renderHomePage)
+                .resolve();
+        });
     </script>
     <!--  -->
     <div id="menu">
@@ -22,7 +65,7 @@
     <script src="header.js"></script>
     <script type="text/javascript" src="mobile.js"></script>
 
-    <div class="allData">
+    <!-- <div class="allData">
         <h1>Top Today</h1>
         <div class="root" id="root1"></div>
         <script src="scripts1.js"></script>
@@ -34,8 +77,9 @@
         <h1>Top This Month</h1>
         <div class="root" id="root3"></div>
         <script src="scripts3.js"></script>
-    </div>
+    </div> -->
 
+    <div id="content"></div>
 
 </body>
 
