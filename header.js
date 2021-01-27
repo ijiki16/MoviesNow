@@ -53,7 +53,7 @@ hamburgerDiv1.setAttribute('class', 'overlay')
 
 const hamburgerClose = document.createElement('a')
 hamburgerClose.setAttribute('class', 'close')
-hamburgerClose.innerHTML="&times;"
+hamburgerClose.innerHTML = "&times;"
 
 const hamburgerDiv2 = document.createElement('div')
 hamburgerDiv2.setAttribute('class', 'overlay__content')
@@ -61,16 +61,16 @@ hamburgerDiv2.setAttribute('class', 'overlay__content')
 // hamburger menu items
 const Home = document.createElement('a')
 Home.setAttribute('href', '#')
-Home.innerHTML="Home"
+Home.innerHTML = "Home"
 const Movies = document.createElement('a')
 Movies.setAttribute('href', '#')
-Movies.innerHTML="Movies"
+Movies.innerHTML = "Movies"
 const TVShows = document.createElement('a')
 TVShows.setAttribute('href', '#')
-TVShows.innerHTML="TV Shows"
+TVShows.innerHTML = "TV Shows"
 const Mylibrary = document.createElement('a')
 Mylibrary.setAttribute('href', '#')
-Mylibrary.innerHTML="My library"
+Mylibrary.innerHTML = "My library"
 
 // put all together
 

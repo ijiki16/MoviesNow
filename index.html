@@ -9,15 +9,24 @@
 </head>
 
 <body>
+    <div id="menu"></div>
     <!-- routing -->
-    <!-- <script src="//unpkg.com/navigo"></script>
+    <script src="//unpkg.com/navigo"></script>
     <script>
         const nav = `
-          <ul>
-            <li><a href="/" data-navigo>Home</a></li>
-            <li><a href="/about" data-navigo>About navigo</a></li>
-            <li><a href="/links" data-navigo>Links</a></li>
-          </ul>
+        <div class="allData">
+          <h1>Top Today</h1>
+          <div class="root" id="root1"></div>
+          
+
+          <h1>Latest Upload</h1>
+          <div class="root" id="root2"></div>
+          
+
+          <h1>Top This Month</h1>
+          <div class="root" id="root3"></div>
+          
+      </div>
         `;
 
         function renderHomePage() {
@@ -28,58 +37,49 @@
           `;
         }
 
-        function renderAboutPage() {
-            document.querySelector("#content").innerHTML = `
-            <h1>Navigo basic example | About</h1>
-            <hr />
-            ${nav}
-            <hr />
-            <p>Navigo is vanilla JavaScript router. It has no dependencies.</p>
-          `;
-        }
+        // function renderAboutPage() {
+        //     document.querySelector("#content").innerHTML = `
+        //     <h1>Navigo basic example | About</h1>
+        //     <hr />
+        //     ${nav}
+        //     <hr />
+        //     <p>Navigo is vanilla JavaScript router. It has no dependencies.</p>
+        //   `;
+        // }
 
-        function renderLinksPage() {
-            document.querySelector("#content").innerHTML = `
-            <h1>Navigo basic example | Other links</h1>
-            <hr />
-            ${nav}
-            <hr />
-            <p>
-              <a href="https://github.com/krasimir/navigo" target="_blank" >Documentation</a><br />
-              <a href="https://www.npmjs.com/package/navigo" target="_blank" >NPM package </a>
-            </p>
-          `;
-        }
+        // function renderLinksPage() {
+        //     document.querySelector("#content").innerHTML = `
+        //     <h1>Navigo basic example | Other links</h1>
+        //     <hr />
+        //     ${nav}
+        //     <hr />
+        //     <p>
+        //       <a href="https://github.com/krasimir/navigo" target="_blank" >Documentation</a><br />
+        //       <a href="https://www.npmjs.com/package/navigo" target="_blank" >NPM package </a>
+        //     </p>
+        //   `;
+        // }
+
         window.addEventListener("load", () => {
             const router = new Navigo("/");
 
             router
-                .on("/about", renderAboutPage)
-                .on("/links", renderLinksPage)
+                // .on("/about", renderAboutPage)
+                // .on("/links", renderLinksPage)
+                // .on("/movies", renderAboutPage)
                 .on("*", renderHomePage)
                 .resolve();
         });
-    </script> -->
+    </script>
     <!--  -->
-    <div id="menu">
-    </div>
+    
     <script src="header.js"></script>
     <script type="text/javascript" src="mobile.js"></script>
-
-    <div class="allData">
-        <h1>Top Today</h1>
-        <div class="root" id="root1"></div>
-        <script src="scripts1.js"></script>
-
-        <h1>Latest Upload</h1>
-        <div class="root" id="root2"></div>
-        <script src="scripts2.js"></script>
-
-        <h1>Top This Month</h1>
-        <div class="root" id="root3"></div>
-        <script src="scripts3.js"></script>
-    </div>
-
+    <h1>Top Today</h1>
+          <div class="root" id="root1"></div>
+    <script src="scripts1.js"></script>
+    <script src="scripts2.js"></script>
+    <script src="scripts3.js"></script>
     <div id="content"></div>
 
 </body>
