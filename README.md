@@ -4,9 +4,9 @@
 
 ## Info
 
-- <b>სათაური</b>: MoviesNow
-- <b>აღწერა</b>: საიტი იქნება განკუთვნილი ფილმების მოსაძებნად და საყურებლად
-- <b>API</b>:  [api.adjaranet.com](api.adjaranet.com)
+- **სათაური**: MoviesNow
+- **აღწერა**: საიტი იქნება განკუთვნილი ფილმების მოსაძებნად და საყურებლად
+- **API**:  [api.adjaranet.com](api.adjaranet.com)
 
 ## Features
 
