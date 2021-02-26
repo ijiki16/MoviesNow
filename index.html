@@ -10,10 +10,39 @@
 </head>
 
 <body>
-    <div id="menu"></div>
+    
+    <header>
+        <a class="logo" href="/" style=" float: left;">
+            <div class="logoWords">
+                <img src="images/logo.svg" alt="logo">
+            </div>
+        </a>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="/" data-navigo>Home</a></li>
+                <li><a href="/movies" data-navigo>Movies</a></li>
+                <li><a href="/tvshows" data-navigo>TV Shows</a></li>
+                <li><a href="/mylibrary" data-navigo>My library</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="#">Contact</a>
+        <p class="menu cta">Menu</p>
+    </header>
+    <div class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay__content">
+            <a href="/" data-navigo>Home</a>
+            <a href="/movies" data-navigo>Movies</a>
+            <a href="/tvshows" data-navigo>TV Shows</a>
+            <a href="/mylibrary" data-navigo>My library</a>
+        </div>
+    </div>
+    <div id="content"></div>
     <!-- routing -->
     <script src="//unpkg.com/navigo"></script>
     <script>
+        // import { reqv1 } from './scripts/scripts1.js';
+
         const nav = `
         <div class="allData">
           <h1>Top Today</h1>
@@ -32,21 +61,22 @@
 
         function renderHomePage() {
             document.querySelector("#content").innerHTML = `
-            <h1>Navigo basic example</h1>
+            <!--  <h1>Navigo basic example</h1> -->
             <hr />
             ${nav}
           `;
+          
         }
 
-        // function renderAboutPage() {
-        //     document.querySelector("#content").innerHTML = `
-        //     <h1>Navigo basic example | About</h1>
-        //     <hr />
-        //     ${nav}
-        //     <hr />
-        //     <p>Navigo is vanilla JavaScript router. It has no dependencies.</p>
-        //   `;
-        // }
+        function renderMovesPage() {
+            document.querySelector("#content").innerHTML = `
+            <h1>Navigo basic example | About</h1>
+            <hr />
+            ${nav}
+            <hr />
+            <p>Navigo is vanilla JavaScript router. It has no dependencies.</p>
+          `;
+        }
 
         // function renderLinksPage() {
         //     document.querySelector("#content").innerHTML = `
@@ -65,23 +95,22 @@
             const router = new Navigo("/");
 
             router
+                .on("*", renderHomePage)
+                .on("/movies", renderMovesPage)
                 // .on("/about", renderAboutPage)
                 // .on("/links", renderLinksPage)
-                // .on("/movies", renderAboutPage)
-                .on("*", renderHomePage)
                 .resolve();
         });
     </script>
     <!--  -->
 
-    <script type="text/javascript" src="/scripts/header.js"></script>
+    <!-- <script type="text/javascript" src="/scripts/header.js"></script> -->
     <script type="text/javascript" src="/scripts/mobile.js"></script>
-    <h1>Top Today</h1>
+    <!-- <h1>Top Today</h1>
     <div class="root" id="root1"></div>
-    <script src="/scripts/scripts1.js"></script>
+    
     <script src="/scripts/scripts2.js"></script>
-    <script src="/scripts/scripts3.js"></script>
-    <div id="content"></div>
+    <script src="/scripts/scripts3.js"></script> -->
 
 </body>
 
