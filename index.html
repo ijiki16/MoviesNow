@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    
+
     <header>
         <a class="logo" href="/" style=" float: left;">
             <div class="logoWords">
@@ -40,8 +40,11 @@
     <div id="content"></div>
     <!-- routing -->
     <script src="//unpkg.com/navigo"></script>
-    <script>
-        // import { reqv1 } from './scripts/scripts1.js';
+    <!-- <script type="module">
+        import { reqv1 } from './scripts/scripts1.js';
+    </script> -->
+    <script type="module">
+        import { reqv1 } from './scripts/scripts1.js';
 
         const nav = `
         <div class="allData">
@@ -61,11 +64,12 @@
 
         function renderHomePage() {
             document.querySelector("#content").innerHTML = `
-            <!--  <h1>Navigo basic example</h1> -->
+            <h1>Navigo basic example</h1>
             <hr />
             ${nav}
           `;
-          
+            reqv1('?type=movie&period=day&page=1&per_page=20');
+
         }
 
         function renderMovesPage() {
@@ -78,27 +82,12 @@
           `;
         }
 
-        // function renderLinksPage() {
-        //     document.querySelector("#content").innerHTML = `
-        //     <h1>Navigo basic example | Other links</h1>
-        //     <hr />
-        //     ${nav}
-        //     <hr />
-        //     <p>
-        //       <a href="https://github.com/krasimir/navigo" target="_blank" >Documentation</a><br />
-        //       <a href="https://www.npmjs.com/package/navigo" target="_blank" >NPM package </a>
-        //     </p>
-        //   `;
-        // }
-
         window.addEventListener("load", () => {
             const router = new Navigo("/");
 
             router
-                .on("*", renderHomePage)
                 .on("/movies", renderMovesPage)
-                // .on("/about", renderAboutPage)
-                // .on("/links", renderLinksPage)
+                .on("*", renderHomePage)
                 .resolve();
         });
     </script>

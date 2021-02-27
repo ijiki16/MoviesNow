@@ -5,7 +5,7 @@ export function reqv1(params) {
 
   var url = 'https://api.adjaranet.com/api/v1/movies/top'
   // 
-  var params = '?type=movie&period=day&page=1&per_page=20'
+  // var params = '?type=movie&period=day&page=1&per_page=20'
   var filters = '&filters%5Bwith_actors%5D=3&filters%5Bwith_directors%5D=1'
   var other = '&source=adjaranet'
   // 
@@ -52,4 +52,4 @@ export function reqv1(params) {
   request.send()
 }
 
-this.reqv1()
+// this.reqv1()
