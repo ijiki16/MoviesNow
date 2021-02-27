@@ -11,8 +11,8 @@
 <body>
     <div id="menu">
     </div>
-    <script src="header.js"></script>
-    <script type="text/javascript" src="mobile.js"></script>
+    <script src="./scripts/header.js"></script>
+    <script type="text/javascript" src="./scripts/mobile.js"></script>
 
     <video id="video" width="80%" height="720" controls>
         <source id="videoSrc" src="" type="video/mp4">
@@ -20,7 +20,11 @@
     </video>
 
     <script>
-        var movieId = "450284640";
+        console.log(window.location.search)
+        let params = new URLSearchParams(window.location.search)
+        console.log(params.get("id"))
+
+        var movieId = params.get("id");
         var linkS = "https://api.adjaranet.com/api/v1/movies/"
         var linkE = "/season-files/0"
         var param = "?source=adjaranet"

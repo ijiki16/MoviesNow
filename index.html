@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
 </head>
 
 <body>
@@ -43,13 +41,11 @@
     <div id="content"></div>
     <!-- routing -->
     <script src="//unpkg.com/navigo"></script>
-    <!-- <script type="module">
-        import { reqv1 } from './scripts/scripts1.js';
-    </script> -->
+   
     <script type="module">
-        import { reqv1 } from './scripts/scripts1.js';
+        import { getMovies } from './scripts/API.js';
 
-        const nav = `
+        const mainPageData = `
         <div class="allData">
           <h1>Top Today</h1>
           <div class="root" id="root1"></div>
@@ -66,32 +62,24 @@
         `;
 
         function renderHomePage() {
-            document.querySelector("#content").innerHTML = `
-            <h1>Navigo basic example</h1>
-            <hr />
-            ${nav}
-          `;
-            reqv1('root1','?type=movie&period=day&page=1&per_page=20', '', '/top');
-            reqv1('root2','?page=1&per_page=20&filters%5Bwith_files%5D=yes&filters%5Btype%5D=movie', '&sort=-upload_date', '');
-            reqv1('root3','?type=movie&period=month&page=1&per_page=20', '', '/top');
+            document.querySelector("#content").innerHTML = `${mainPageData}`;
+            getMovies('root1','?type=movie&period=day&page=1&per_page=20', '', '/top');
+            getMovies('root2','?page=1&per_page=20&filters%5Bwith_files%5D=yes&filters%5Btype%5D=movie', '&sort=-upload_date', '');
+            getMovies('root3','?type=movie&period=month&page=1&per_page=20', '', '/top');
 
         }
 
-        function renderMoviePage() {
-            document.querySelector("#content").innerHTML = `
-            <h1>Navigo curnt Movie Page | About</h1>
-            <hr />
-            ${nav}
-            <hr />
-            <p>Navigo is vanilla JavaScript router. It has no dependencies.</p>
-          `;
-        }
+        // function renderMoviePage() {
+        //     document.querySelector("#content").innerHTML = `
+        //     <h1>Currnt Movie Page | About</h1>
+            
+        //     <p>Navigo is vanilla JavaScript router. It has no dependencies.</p>
+        //   `;
+        // }
         function renderMoviesPage() {
             document.querySelector("#content").innerHTML = `
-            <h1>Navigo basic example | About</h1>
-            <hr />
-            ${nav}
-            <hr />
+            <h1>Movies Page</h1>
+            
             <p>Navigo is vanilla JavaScript router. It has no dependencies.</p>
           `;
         }
@@ -100,7 +88,11 @@
             const router = new Navigo("/");
 
             router
-                .on("/movie#id", renderMoviePage)
+        //         .on("/movie", (match) => {
+        //     console.log(match);
+        //     renderMoviePage();
+        //   })
+                .on("/movie", renderMoviePage)
                 .on("/movies", renderMoviesPage)
                 .on("*", renderHomePage)
                 .resolve();

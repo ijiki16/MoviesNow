@@ -1,4 +1,4 @@
-export function reqv1(element, params, other, top) {
+export function getMovies(element, params, other, top) {
   const app = document.getElementById(element)
 
   var request = new XMLHttpRequest();
@@ -21,8 +21,8 @@ export function reqv1(element, params, other, top) {
       data.data.forEach((movie) => {
         // console.log(movie)
         const link  = document.createElement('a')
-        link.setAttribute('href', './movie.html/'+movie.id)
-
+        link.setAttribute('href', '/movie.html?id='+movie.id)
+        link.setAttribute('data-navigo', '')
         const card = document.createElement('div')
         card.setAttribute('class', 'card')
 
@@ -52,5 +52,3 @@ export function reqv1(element, params, other, top) {
 
   request.send()
 }
-
-// this.reqv1()
