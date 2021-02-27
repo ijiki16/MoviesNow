@@ -10,18 +10,18 @@ export function getMovies(element, params, other, top) {
   // var other = '&source=adjaranet'
   var source = '&source=adjaranet'
   // 
-  request.open('GET', url+top+params+filters+other+source, true);
+  request.open('GET', url + top + params + filters + other + source, true);
 
   request.onload = function () {
-    
-    
+
+
     if (request.status >= 200 && request.status < 400) {
       var data = JSON.parse(this.response);
 
       data.data.forEach((movie) => {
         // console.log(movie)
-        const link  = document.createElement('a')
-        link.setAttribute('href', '/movie.html?id='+movie.id)
+        const link = document.createElement('a')
+        link.setAttribute('href', '/movie.html?id=' + movie.id)
         link.setAttribute('data-navigo', '')
         const card = document.createElement('div')
         card.setAttribute('class', 'card')
@@ -50,5 +50,34 @@ export function getMovies(element, params, other, top) {
     }
   }
 
+  request.send()
+}
+
+export function setMovieVideo(id) {
+
+  var linkS = "https://api.adjaranet.com/api/v1/movies/"
+  var linkE = "/season-files/0"
+  var param = "?source=adjaranet"
+  var request = new XMLHttpRequest();
+
+  request.open('GET', linkS + id + linkE + param, true);
+  request.onload = function () {
+
+    if (request.status >= 200 && request.status < 400) {
+      var video = document.getElementById('video');
+      video.pause();
+
+      var data = JSON.parse(this.response);
+      var firsVideoData = data.data[0].files[0]
+      // console.log(firsVideoData["lang"])
+      // console.log(firsVideoData.files[0].src)
+      var videoSrcLink = firsVideoData.files[0].src
+      document.getElementById('videoSrc').setAttribute("src", videoSrcLink);
+
+      video.load();
+    } else {
+      console.log('error')
+    }
+  }
   request.send()
 }
