@@ -1,15 +1,16 @@
-export function reqv1(params) {
-  const app = document.getElementById('root1')
+export function reqv1(element, params, other, top) {
+  const app = document.getElementById(element)
 
   var request = new XMLHttpRequest();
 
-  var url = 'https://api.adjaranet.com/api/v1/movies/top'
+  var url = 'https://api.adjaranet.com/api/v1/movies'
   // 
   // var params = '?type=movie&period=day&page=1&per_page=20'
   var filters = '&filters%5Bwith_actors%5D=3&filters%5Bwith_directors%5D=1'
-  var other = '&source=adjaranet'
+  // var other = '&source=adjaranet'
+  var source = '&source=adjaranet'
   // 
-  request.open('GET', url+params+filters+other, true);
+  request.open('GET', url+top+params+filters+other+source, true);
 
   request.onload = function () {
     
@@ -18,7 +19,7 @@ export function reqv1(params) {
       var data = JSON.parse(this.response);
 
       data.data.forEach((movie) => {
-        console.log(movie)
+        // console.log(movie)
         const link  = document.createElement('a')
         link.setAttribute('href', './movie.html/'+movie.id)
 
