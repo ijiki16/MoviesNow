@@ -15,9 +15,16 @@ h1{
 
 
 .logo {
-  min-width: 300px;
+  min-width: 200px;
+  width: 50%;
+  max-width: 300px;
 }
 
+.logoWords{
+  width: 100%;
+  max-width: 300px;
+  min-width: 200px;
+}
 .root{
   height: 350px;
   border:  1px solid #ddd;
