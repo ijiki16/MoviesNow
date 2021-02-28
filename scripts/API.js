@@ -93,20 +93,21 @@ export function setMovieInfo(id) {
   request.onload = function () {
 
     if (request.status >= 200 && request.status < 400) {
-      var data = JSON.parse(this.response);
-      var movieVideoDiv = document.getElementById('movieVideoDiv');
-      var movieName = document.getElementById('movieName');
-      var movieImage = document.getElementById('movieImage');
       // all data
+      var data = JSON.parse(this.response);
       console.log(data.data);
       // background
+      var movieVideoDiv = document.getElementById('movieVideoDiv');
       let backImage = data.data.covers.data['1920']
-      console.log(data.data.covers.data['1920']);
+      // console.log(data.data.covers.data['1920']);
       movieVideoDiv.style.backgroundImage = `url(${backImage})`;
-      // name
-      movieName.innerHTML = data.data.originalName;
       // poster
+      var movieImage = document.getElementById('movieImage');
       movieImage.setAttribute('src', data.data.posters.data['240']);
+      // name
+      var movieName = document.getElementById('movieName');
+      movieName.innerHTML = data.data.originalName;
+      
     } else {
       console.log('error')
       return null;
