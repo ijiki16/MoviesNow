@@ -43,7 +43,7 @@
 
 .movieInfo {
     margin-left: 3%;
-    width: 60%;
+    width: 100%;
     /* border: 8px solid gray;
     border-radius: 12px; */
 }
@@ -57,8 +57,13 @@
 
 .infoLine, .movieDescription{
     font-size: 12px;
+    display: flex;
+    flex-direction: row;
 }
 
+.infoData{
+    margin-left: 20px;
+}
 @media screen and (min-width: 800px) {
     .movieName {
         font-size: 27px;

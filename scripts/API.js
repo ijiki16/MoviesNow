@@ -107,7 +107,18 @@ export function setMovieInfo(id) {
       // name
       var movieName = document.getElementById('movieName');
       movieName.innerHTML = data.data.originalName;
-
+      // year
+      var curElem = document.getElementById('year');
+      curElem.innerHTML =  data.data.year;
+      // cntry
+      var curElem = document.getElementById('cntry');
+      curElem.innerHTML =  "";
+      console.log(data.data.countries.data)
+      data.data.countries.data.forEach((cnts) => {
+        console.log(cnts.primaryName);
+        curElem.innerHTML += cnts.primaryName;
+      });
+      
     } else {
       console.log('error')
       return null;

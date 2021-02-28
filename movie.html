@@ -77,11 +77,11 @@
                 <div class="infoList">
                     <div class="infoLine">
                         <div class="infoType">გამოშვების წელი:</div>
-                        <div class="infoData">2010</div>
+                        <div class="infoData" id="year">2010</div>
                     </div>
                     <div class="infoLine">
                         <div class="infoType">ქვეყანა:</div>
-                        <div class="infoData">
+                        <div class="infoData" id="cntry">
                             <a href="/episodes?country=125">აშშ</a>
                         </div>
                     </div>
@@ -99,6 +99,18 @@
                 </div>
             </div>
         </div>
+        `;
+
+        const moviesPageData = `
+        <div class="Search" id="Search">
+            <form class="example" action="/movies">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit" >search<i class="fa fa-search"></i></button>
+            </form>
+        </div> 
+        
+        <h1>SearchResult</h1>
+        <div class="searchResult" id="searhData"></div>
         `;
 
         function renderHomePage() {
@@ -120,11 +132,8 @@
         }
 
         function renderMoviesPage() {
-            document.querySelector("#content").innerHTML = `
-            <h1>Movies Page</h1>
-            
-            <p>Navigo is vanilla JavaScript router. It has no dependencies.</p>
-          `;
+            document.querySelector("#content").innerHTML =`${moviesPageData}`;
+            setSearchMovies("gela");
         }
 
         window.addEventListener("load", () => {
