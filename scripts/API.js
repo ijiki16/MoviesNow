@@ -89,7 +89,7 @@ export function setMovieInfo(id) {
   var param = "?filters%5Bwith_directors%5D=3&source=adjaranet"
   var request = new XMLHttpRequest();
 
-  request.open('GET', linkS + id+ param, true);
+  request.open('GET', linkS + id + param, true);
   request.onload = function () {
 
     if (request.status >= 200 && request.status < 400) {
@@ -107,7 +107,82 @@ export function setMovieInfo(id) {
       // name
       var movieName = document.getElementById('movieName');
       movieName.innerHTML = data.data.originalName;
-      
+
+    } else {
+      console.log('error')
+      return null;
+    }
+  }
+  request.send()
+}
+
+export function setSearchMovies(searchWord) {
+  var linkS = "https://api.adjaranet.com/api/v1/search-advanced";
+
+  var pageData = '?page=1&per_page=23'
+
+  var searchQuery1 = '&filters%5Btype%5D=movie' +
+    '&filters%5Byear_range%5D=1900%2C2020' +
+    '&filters%5Binit%5D=true' +
+    '&filters%5Bsort%5D=-upload_date' +
+    '&filters%5Bwith_actors%5D=3' +
+    '&filters%5Bwith_directors%5D=1' +
+    '&filters%5Bwith_files%5D=yes';
+
+  var other = '&sort=-upload_date&source=adjaranet';
+
+  let params = new URLSearchParams(window.location.search);
+  if (params) searchWord = params.get("search");
+  
+  var searchQuery2 = `?movie_filters%5Bkeyword%5D=${searchWord}` +
+    '&movie_filters%5Byear_range%5D=1900%2C2020' +
+    '&movie_filters%5Binit%5D=true' +
+    '&movie_filters%5Bwith_actors%5D=3' +
+    '&movie_filters%5Bwith_directors%5D=1' +
+    `&filters%5Btype%5D=movie&keywords=${searchWord}` +
+    '&page=1&per_page=25&source=adjaranet';
+  const app = document.getElementById('searhData')
+
+  var request = new XMLHttpRequest();
+
+  
+  // console.log(params.get("id"));
+  
+  // console.log("bla blas")
+  request.open('GET', linkS + searchQuery2, true);
+  request.onload = function () {
+
+    if (request.status >= 200 && request.status < 400) {
+      // all data
+      var data = JSON.parse(this.response);
+      console.log(data.data);
+
+      data.data.forEach((movie) => {
+        // console.log(movie)
+        const link = document.createElement('a')
+        link.setAttribute('href', '/movie.html?id=' + movie.id)
+        link.setAttribute('data-navigo', '')
+        const card = document.createElement('div')
+        card.setAttribute('class', 'card')
+
+        const h1 = document.createElement('h1')
+        h1.textContent = movie.secondaryName
+
+        const img = document.createElement('img')
+        img.width = 200
+
+        //console.log(movie.covers.data)
+        img.src = movie.posters.data[240]
+        //movie.description = movie.description.substring(0, 300)
+
+        // card.appendChild(h1)
+        card.appendChild(img)
+        link.appendChild(card)
+        app.appendChild(link)
+
+      });
+
+
     } else {
       console.log('error')
       return null;

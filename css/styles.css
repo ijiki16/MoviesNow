@@ -190,3 +190,10 @@ header {
     display: initial;
   }
 }
+
+/* movies Search */
+.searchResult{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

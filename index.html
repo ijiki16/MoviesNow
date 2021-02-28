@@ -43,7 +43,7 @@
     <script src="//unpkg.com/navigo"></script>
    
     <script type="module">
-        import { getMovies } from './scripts/API.js';
+        import { getMovies, setMovieVideo, setMovieInfo , setSearchMovies } from './scripts/API.js';
 
         const mainPageData = `
         <div class="allData">
@@ -99,6 +99,19 @@
         </div>
         `;
 
+        const moviesPageData = `
+        <div class="Search" id="Search">
+            <form class="example" action="/movies">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit" >search<i class="fa fa-search"></i></button>
+            </form>
+        </div> 
+        
+        <h1>SearchResult</h1>
+        <div class="searchResult" id="searhData"></div>
+        
+        `;
+
         function renderHomePage() {
             document.querySelector("#content").innerHTML = `${mainPageData}`;
             getMovies('root1','?type=movie&period=day&page=1&per_page=20', '', '/top');
@@ -118,11 +131,8 @@
         }
 
         function renderMoviesPage() {
-            document.querySelector("#content").innerHTML = `
-            <h1>Movies Page</h1>
-            
-            <p>Navigo is vanilla JavaScript router. It has no dependencies.</p>
-          `;
+            document.querySelector("#content").innerHTML =`${moviesPageData}`;
+            setSearchMovies("gela");
         }
 
         window.addEventListener("load", () => {
