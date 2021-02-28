@@ -133,7 +133,7 @@ export function setSearchMovies(searchWord) {
 
   let params = new URLSearchParams(window.location.search);
   if (params) searchWord = params.get("search");
-  
+
   var searchQuery2 = `?movie_filters%5Bkeyword%5D=${searchWord}` +
     '&movie_filters%5Byear_range%5D=1900%2C2020' +
     '&movie_filters%5Binit%5D=true' +
@@ -145,9 +145,8 @@ export function setSearchMovies(searchWord) {
 
   var request = new XMLHttpRequest();
 
-  
   // console.log(params.get("id"));
-  
+
   // console.log("bla blas")
   request.open('GET', linkS + searchQuery2, true);
   request.onload = function () {
@@ -188,5 +187,9 @@ export function setSearchMovies(searchWord) {
       return null;
     }
   }
+
+  request.setRequestHeader("sec-fetch-site", "none")
+  request.setRequestHeader("x-source", "adjaranet")
+  
   request.send()
 }
