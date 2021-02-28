@@ -12,14 +12,20 @@
   font-family: montserrat;
   text-align: center;
   background-color: #2A9D8F;
-}
+}*/
 
 h1{
   height: 60px;
   color: #F78B1F;
   font-size: 45px;
   margin: 0 auto;
-} */
+  /*  */
+  background: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
 
 /* header{
   background-color:  #f0f420;
@@ -29,7 +35,7 @@ h1{
 
 .logo {
   /* background: #264653;   */
-  width: 300px;
+  min-width: 300px;
   /* float: left; */
 }
 /* .logoelem{
@@ -123,7 +129,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 10%;
+  padding: 30px 3%;
   background-color: #24252a;
 }
 
