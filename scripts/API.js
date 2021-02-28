@@ -81,3 +81,36 @@ export function setMovieVideo(id) {
   }
   request.send()
 }
+
+
+export function setMovieInfo(id) {
+
+  var linkS = "https://api.adjaranet.com/api/v1/movies/"
+  var param = "?filters%5Bwith_directors%5D=3&source=adjaranet"
+  var request = new XMLHttpRequest();
+
+  request.open('GET', linkS + id+ param, true);
+  request.onload = function () {
+
+    if (request.status >= 200 && request.status < 400) {
+      var data = JSON.parse(this.response);
+      var movieVideoDiv = document.getElementById('movieVideoDiv');
+      var movieName = document.getElementById('movieName');
+      var movieImage = document.getElementById('movieImage');
+      // all data
+      console.log(data.data);
+      // background
+      let backImage = data.data.covers.data['1920']
+      console.log(data.data.covers.data['1920']);
+      movieVideoDiv.style.backgroundImage = `url(${backImage})`;
+      // name
+      movieName.innerHTML = data.data.originalName;
+      // poster
+      movieImage.setAttribute('src', data.data.posters.data['240']);
+    } else {
+      console.log('error')
+      return null;
+    }
+  }
+  request.send()
+}

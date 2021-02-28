@@ -59,6 +59,46 @@
       </div>
         `;
 
+        const moviePageData = `
+        <div class="movieVideoDiv" id="movieVideoDiv">
+            <video class="movieVideo" id="video" controls>
+                <source id="videoSrc" src="" type="video/mp4">
+            </video>
+        </div
+        <div class="movieData">
+            <div class="movieImageDiv">
+                <img class="movieImage" id="movieImage"
+                    src="https://static.adjaranet.com/movies/posters/240/939/878491939-51af06cfca8b5d316cc1701d8b5f762f.jpg">
+            </div>
+            <div class="movieInfo">
+                <div class="movieName" id="movieName"> ოქროს ძიებაში: ალასკა </div>
+                <div class="infoList">
+                    <div class="infoLine">
+                        <div class="infoType">გამოშვების წელი:</div>
+                        <div class="infoData">2010</div>
+                    </div>
+                    <div class="infoLine">
+                        <div class="infoType">ქვეყანა:</div>
+                        <div class="infoData">
+                            <a href="/episodes?country=125">აშშ</a>
+                        </div>
+                    </div>
+                    <div class="infoLine">
+                        <div class="infoType">ჟანრი:</div>
+                        <div class="infoData">
+                            <a href="/episodes?genre=272">Reality-TV, </a>
+                            <a href="/episodes?genre=275">სერიალი</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="movieDescription">
+                    <div class="descriptionLabel">აღწერა</div>
+                    <div class="descriptionData">რეალითი სატელევიზიო შოუ, იუკონის ტერიტორიზე ოქროს მოპოვების შესახებ.</div>
+                </div>
+            </div>
+        </div>
+        `;
+
         function renderHomePage() {
             document.querySelector("#content").innerHTML = `${mainPageData}`;
             getMovies('root1','?type=movie&period=day&page=1&per_page=20', '', '/top');
@@ -67,13 +107,16 @@
 
         }
 
-        // function renderMoviePage() {
-        //     document.querySelector("#content").innerHTML = `
-        //     <h1>Currnt Movie Page | About</h1>
-            
-        //     <p>Navigo is vanilla JavaScript router. It has no dependencies.</p>
-        //   `;
-        // }
+        function renderMoviePage() {
+            document.querySelector("#content").innerHTML = `${moviePageData}`;
+            // console.log(window.location.search);
+            let params = new URLSearchParams(window.location.search);
+            // console.log(params.get("id"));
+            var movieID = params.get("id")
+            setMovieVideo(movieID);
+            setMovieInfo(movieID); 
+        }
+
         function renderMoviesPage() {
             document.querySelector("#content").innerHTML = `
             <h1>Movies Page</h1>
@@ -90,7 +133,7 @@
         //     console.log(match);
         //     renderMoviePage();
         //   })
-                // .on("/movie", renderMoviePage)
+                .on("/movie", renderMoviePage)
                 .on("/movies", renderMoviesPage)
                 .on("*", renderHomePage)
                 .resolve();

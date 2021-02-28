@@ -67,6 +67,7 @@ ul li a:hover {
 }
 */
 .root{
+  height: 350px;
   /* max-height: 130px; */
   border:  1px solid #ddd;
   display: flex;
@@ -82,7 +83,7 @@ ul li a:hover {
   /* box-shadow: 2px 4px 25px black; */
   border: 8px solid gray;
   border-radius: 12px;
-  margin: 5px 15px 25px 35px;
+  margin: 10px 35px 0px 35px;
   transition: all .2s linear;
   /* margin: 1rem;
   width: 201px;
@@ -90,6 +91,10 @@ ul li a:hover {
   
   display: inline-block; */
   /* new */
+  height: 95%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
   /* width: 200px;
   width: 300px; */
 }
@@ -129,7 +134,9 @@ header {
 .nav__links a,
 .cta,
 .overlay__content a {
-  font-family: "Montserrat", sans-serif;
+  /* font-family: "Montserrat", sans-serif; */
+  font-size: 150%;
+  font-family: "Roboto", sans-serif;
   font-weight: 500;
   color: #edf0f1;
   text-decoration: none;
@@ -141,6 +148,7 @@ header {
 }
 
 .nav__links li {
+  /* padding-left: 10%; */
   padding: 0px 20px;
 }
 
@@ -154,6 +162,8 @@ header {
 
 .cta {
   padding: 9px 25px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 100%;
   background-color: rgba(0, 136, 169, 1);
   border: none;
   border-radius: 50px;

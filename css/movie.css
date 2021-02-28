@@ -1,6 +1,53 @@
+.movieVideoDiv {
+    background-color: tomato;
+    /* background-color: rgb(0, 0, 0); */
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    background-size: 100%;
+    backdrop-filter: blur(8px);
+    /* margin-top: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width:90%;
+    height:720; */
+}
 .movieVideo {
-    
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    width:90%;
+    height:720;
+    filter:none;
+}
+
+.movieData{
     margin-top: 50px;
-    margin-left: 10%;
-    margin-right: 10%;
+    /* margin-bottom: 50px; */
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+}
+
+.movieImageDiv{
+    width: 185px;
+    height: 276px;
+}
+
+.movieImage{
+    width: 185px;
+    height: 276px;
+}
+.movieInfo{
+    margin-left: 3%;
+}
+
+.movieName{
+    background-color: turquoise;
+    height: 90px;
+    font-size: 80px;
+
+}
+.info1{
+    display: flex;
 }
