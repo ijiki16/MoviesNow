@@ -6,7 +6,7 @@ h1{
   font-size: 45px;
   margin: 0 auto;
 
-  background: red;
+  background: #D3302F;
   display: flex;
   flex-direction: column;
   justify-content: center;

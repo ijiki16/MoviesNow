@@ -76,3 +76,7 @@
 .info1 {
     display: flex;
 }
+
+.descriptionData{
+    margin: 20px;
+}

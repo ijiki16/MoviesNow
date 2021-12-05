@@ -76,7 +76,7 @@
                 <div class="movieName" id="movieName"> ოქროს ძიებაში: ალასკა </div>
                 <div class="infoList">
                     <div class="infoLine">
-                        <div class="infoType">გამოშვების წელი:</div>
+                        <div class="infoType">წელი:</div>
                         <div class="infoData" id="year">2010</div>
                     </div>
                     <div class="infoLine">
@@ -87,15 +87,15 @@
                     </div>
                     <div class="infoLine">
                         <div class="infoType">ჟანრი:</div>
-                        <div class="infoData">
+                        <div class="infoData" id="genrs">
                             <a href="/episodes?genre=272">Reality-TV, </a>
                             <a href="/episodes?genre=275">სერიალი</a>
                         </div>
                     </div>
                 </div>
                 <div class="movieDescription">
-                    <div class="descriptionLabel">აღწერა</div>
-                    <div class="descriptionData">რეალითი სატელევიზიო შოუ, იუკონის ტერიტორიზე ოქროს მოპოვების შესახებ.</div>
+                    <div class="descriptionLabel">აღწერა:</div>
+                    <div class="descriptionData" id="descriptionData">რეალითი სატელევიზიო შოუ, იუკონის ტერიტორიზე ოქროს მოპოვების შესახებ.</div>
                 </div>
             </div>
         </div>
@@ -133,6 +133,7 @@
 
         function renderMoviesPage() {
             document.querySelector("#content").innerHTML =`${moviesPageData}`;
+            setSearchMovies("gela");
             setSearchMovies("gela");
         }
 

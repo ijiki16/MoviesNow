@@ -82,7 +82,6 @@ export function setMovieVideo(id) {
   request.send()
 }
 
-
 export function setMovieInfo(id) {
 
   var linkS = "https://api.adjaranet.com/api/v1/movies/"
@@ -113,12 +112,20 @@ export function setMovieInfo(id) {
       // cntry
       var curElem = document.getElementById('cntry');
       curElem.innerHTML =  "";
-      console.log(data.data.countries.data)
       data.data.countries.data.forEach((cnts) => {
-        console.log(cnts.primaryName);
         curElem.innerHTML += cnts.primaryName;
+        curElem.innerHTML += " ";
       });
-      
+      // deskr
+      var curElem = document.getElementById('descriptionData');
+      curElem.innerHTML = data.data.plot.data.description;
+      // genrs
+      var curElem = document.getElementById('genrs');
+      curElem.innerHTML = ""
+      data.data.genres.data.forEach((gnr) => {
+        curElem.innerHTML += gnr.primaryName;
+        curElem.innerHTML += " ";
+      });
     } else {
       console.log('error')
       return null;
@@ -199,7 +206,7 @@ export function setSearchMovies(searchWord) {
     }
   }
 
-  request.setRequestHeader("sec-fetch-site", "none")
+  // request.setRequestHeader("sec-fetch-site", "same-origin")
   request.setRequestHeader("x-source", "adjaranet")
   
   request.send()
